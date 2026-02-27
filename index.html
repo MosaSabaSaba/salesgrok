@@ -87,11 +87,11 @@
         }
 
         .setup-logo {
-            width: 52px; height: 52px;
+            width: 42px; height: 42px;
             background: linear-gradient(135deg, var(--brand), var(--brand-light));
-            border-radius: 14px;
+            border-radius: 8px;
             display: flex; align-items: center; justify-content: center;
-            color: #fff; font-size: 22px; margin-bottom: 22px;
+            color: #fff; font-size: 18px; margin-bottom: 22px;
             box-shadow: 0 8px 24px rgba(79,63,240,.35);
         }
 
@@ -959,9 +959,6 @@
         footer {
             border-top: 1px solid var(--line);
             padding: 32px 48px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
             flex-wrap: wrap;
             gap: 16px;
         }
@@ -1062,7 +1059,7 @@
                     </a>
                 </div>
 
-                <div class="hero-stats">
+                <div class="hero-stats flex-row">
                     <div class="stat">
                         <div class="stat-n">2.4<span>×</span></div>
                         <div class="stat-l">Higher response rate</div>
@@ -1152,19 +1149,19 @@
             <div class="features-grid">
                 <div class="feat">
                     <div class="feat-num">01</div>
-                    <div class="feat-icon">🔬</div>
+                    <div class="feat-icon"><i class="fa-solid fa-microscope"></i></div>
                     <h4>Analyze Client Lingo</h4>
                     <p>Paste their emails or LinkedIn messages. SalesGrok instantly identifies their vocabulary, tone, and communication patterns.</p>
                 </div>
                 <div class="feat">
                     <div class="feat-num">02</div>
-                    <div class="feat-icon">↺</div>
+                    <div class="feat-icon"><i class="fa-solid fa-rotate"></i></div>
                     <h4>Rewrite in Their Voice</h4>
                     <p>Write your draft normally, we'll transform it to match your prospect's exact style — formal, casual, technical, or anything in between.</p>
                 </div>
                 <div class="feat">
                     <div class="feat-num">03</div>
-                    <div class="feat-icon">📈</div>
+                    <div class="feat-icon"><i class="fa-solid fa-chart-line"></i></div>
                     <h4>Build Instant Rapport</h4>
                     <p>When prospects feel you speak their language, trust builds faster. More replies, more meetings, more closed deals.</p>
                 </div>
@@ -1174,15 +1171,15 @@
                     <h4>Save Hours Weekly</h4>
                     <p>Stop manually researching and adapting your writing. SalesGrok does it in seconds, giving you more time for actual selling.</p>
                 </div>
-                <div class="feat">
+                <div class="features-list">
                     <div class="feat-num">05</div>
-                    <div class="feat-icon">🧠</div>
+                    <div class="feat-icon"><i class="fa-solid fa-brain"></i></div>
                     <h4>Learn Your Own Style</h4>
                     <p>Save your own communication profiles for different types of clients — corporate, startups, executives, technical buyers.</p>
                 </div>
                 <div class="feat">
                     <div class="feat-num">06</div>
-                    <div class="feat-icon">💾</div>
+                    <div class="feat-icon"><i class="fa-regular fa-floppy-disk"></i></div>
                     <h4>Style Library</h4>
                     <p>Store client profiles for future use. Perfect for long sales cycles or repeat business with existing clients.</p>
                 </div>
@@ -1329,16 +1326,15 @@
     </section>
 
     <!-- FOOTER -->
-    <footer>
+    <footer class="d-flex align-items-center justify-content-between">
         <div class="footer-logo">SalesGrok</div>
-        <div class="footer-meta">
+        <div class="footer-meta d-flex flex-column flex-md-row align-items-center">
             © 2026 — Built for sales professionals &nbsp;·&nbsp;
             <a href="mailto:mosasabasaba@soundandcolor.dev">mosasabasaba@soundandcolor.dev</a>
         </div>
     </footer>
 
     <script src="bootstrap.bundle.min.js"></script>
-
     <script>
         // Scroll reveals
         const reveals = document.querySelectorAll('.reveal');
