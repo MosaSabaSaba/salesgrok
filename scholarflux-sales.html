@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScholarFlux for Sales - Speak Your Client's Language</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <style>
+        :root {
+            --brand: #4f3ff0;
+            --brand-light: #7c6ff7;
+            --brand-pale: #f0eeff;
+            --brand-border: #e0d8ff;
+            --text-dark: #1e1854;
+            --text-mid: #4a4580;
+            --text-muted: #9b94cc;
+            --bg-main: #f5f3ff;
+            --bg-white: #ffffff;
+            --success: #16a34a;
+            --success-pale: #f0fdf4;
+            --success-border: #bbf7d0;
+            --danger: #dc2626;
+            --danger-pale: #fef2f2;
+            --radius-lg: 16px;
+            --radius-md: 10px;
+            --radius-sm: 7px;
+        }
+        
+        *, *::before, *::after { 
+            box-sizing: border-box; 
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: linear-gradient(135deg, #141230 0%, #1b1645 45%, #0e2a5c 100%);
+            min-height: 100vh;
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            padding: 24px;
+            overflow-y: auto;
+            color: var(--text-dark);
+        }
+
+        .landing-card {
+            max-width: 1200px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius-lg);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gradient-bar {
+            height: 8px;
+            background: linear-gradient(90deg, var(--brand), var(--brand-light), #a78bfa);
+        }
+
+        .container {
+            padding: 48px;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .icon-wrapper {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--brand), var(--brand-light));
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+        }
+
+        .logo-text h1 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin: 0;
+        }
+
+        .logo-text p {
+            font-size: 14px;
+            color: var(--text-mid);
+            margin: 4px 0 0;
+        }
+
+        .badge {
+            background: var(--brand-pale);
+            color: var(--brand);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 14px;
+            font-weight: 500;
+            border: 1px solid var(--brand-border);
+        }
+
+        .badge i {
+            margin-right: 6px;
+            color: var(--brand);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 48px;
+            align-items: center;
+        }
+
+        .hero-left h2 {
+            font-size: 42px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        .hero-left h2 span {
+            color: var(--brand);
+            position: relative;
+        }
+
+        .hero-left h2 span::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--brand), transparent);
+            border-radius: 2px;
+        }
+
+        .hero-description {
+            font-size: 18px;
+            color: var(--text-mid);
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .sales-quote {
+            background: var(--bg-main);
+            border-left: 4px solid var(--brand);
+            padding: 20px;
+            border-radius: var(--radius-md);
+            margin-bottom: 30px;
+            font-style: italic;
+            color: var(--text-dark);
+            font-size: 16px;
+        }
+
+        .sales-quote .quote-author {
+            margin-top: 12px;
+            font-style: normal;
+            font-weight: 500;
+            color: var(--brand);
+        }
+
+        .stats {
+            display: flex;
+            gap: 30px;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--brand);
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .hero-right {
+            background: var(--bg-white);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--brand-border);
+        }
+
+        .demo-label {
+            display: inline-block;
+            background: var(--brand-pale);
+            color: var(--brand);
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+
+        .example-box {
+            background: var(--bg-main);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .example-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+            color: var(--text-mid);
+            font-size: 14px;
+        }
+
+        .example-before {
+            background: white;
+            padding: 16px;
+            border-radius: var(--radius-sm);
+            border-left: 3px solid var(--text-muted);
+            color: var(--text-mid);
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        .arrow-down {
+            text-align: center;
+            color: var(--brand);
+            margin: 8px 0;
+            font-size: 20px;
+        }
+
+        .example-after {
+            background: white;
+            padding: 16px;
+            border-radius: var(--radius-sm);
+            border-left: 3px solid var(--brand);
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, var(--brand-pale) 0%, var(--brand-pale) 100%);
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        /* Features */
+        .features-section {
+            margin: 48px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h3 {
+            font-size: 32px;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+        }
+
+        .section-title p {
+            color: var(--text-mid);
+            font-size: 18px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--bg-white);
+            padding: 28px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--brand-border);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 20px -8px rgba(79, 63, 240, 0.2);
+            border-color: var(--brand-light);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--brand-pale);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--brand);
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h4 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .feature-card p {
+            color: var(--text-mid);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            margin: 48px 0;
+            background: var(--bg-main);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .step {
+            text-align: center;
+        }
+
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background: var(--brand);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 20px;
+            margin: 0 auto 20px;
+        }
+
+        .step h5 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .step p {
+            color: var(--text-mid);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Pricing */
+        .pricing-section {
+            margin: 48px 0;
+            text-align: center;
+        }
+
+        .pricing-card {
+            max-width: 400px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, white, var(--bg-main));
+            border: 2px solid var(--brand-border);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            position: relative;
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--brand);
+            color: white;
+            padding: 4px 16px;
+            border-radius: 100px;
+            font-size: 14px;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .price {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--brand);
+            margin: 20px 0;
+        }
+
+        .price small {
+            font-size: 16px;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .pricing-features li {
+            margin: 12px 0;
+            color: var(--text-mid);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .pricing-features i {
+            color: var(--success);
+        }
+
+        .payment-note {
+            background: var(--brand-pale);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin-top: 24px;
+            font-size: 14px;
+            color: var(--text-dark);
+            border: 1px dashed var(--brand);
+        }
+
+        .payment-note i {
+            color: var(--brand);
+            margin-right: 6px;
+        }
+
+        .payment-details {
+            background: white;
+            padding: 16px;
+            border-radius: var(--radius-sm);
+            margin-top: 16px;
+            font-family: monospace;
+            font-size: 16px;
+            border: 1px solid var(--brand-border);
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--brand), var(--brand-light));
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 24px;
+            box-shadow: 0 8px 16px -4px rgba(79, 63, 240, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 20px -4px rgba(79, 63, 240, 0.4);
+        }
+
+        /* FAQ */
+        .faq-section {
+            margin: 48px 0;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 30px;
+        }
+
+        .faq-item {
+            background: var(--bg-white);
+            padding: 24px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--brand-border);
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .faq-question i {
+            color: var(--brand);
+        }
+
+        .faq-answer {
+            color: var(--text-mid);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid var(--brand-border);
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container { padding: 24px; }
+            .hero { grid-template-columns: 1fr; }
+            .features-grid { grid-template-columns: 1fr; }
+            .steps { grid-template-columns: 1fr; }
+            .faq-grid { grid-template-columns: 1fr; }
+            .hero-left h2 { font-size: 32px; }
+        }
+
+        /* Remitly Instructions */
+        .remitly-box {
+            background: var(--success-pale);
+            border: 1px solid var(--success-border);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin: 30px 0;
+        }
+
+        .remitly-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--success);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .remitly-steps {
+            list-style: none;
+        }
+
+        .remitly-steps li {
+            margin: 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-dark);
+        }
+
+        .remitly-steps i {
+            color: var(--success);
+            width: 20px;
+        }
+
+        .ref-code {
+            background: white;
+            padding: 12px;
+            border-radius: var(--radius-sm);
+            font-family: monospace;
+            font-size: 20px;
+            text-align: center;
+            border: 2px dashed var(--brand);
+            margin: 15px 0;
+        }
+
+        /* Add this to your existing CSS */
+        @keyframes cta-glow {
+            0% {
+                box-shadow: 0 8px 16px -4px rgba(79, 63, 240, 0.3);
+            }
+            50% {
+                box-shadow: 0 12px 28px 0px rgba(79, 63, 240, 0.6), 0 0 0 2px rgba(124, 111, 247, 0.3);
+            }
+            100% {
+                box-shadow: 0 8px 16px -4px rgba(79, 63, 240, 0.3);
+            }
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--brand), var(--brand-light));
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 24px;
+            animation: cta-glow 2.5s infinite ease-in-out;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            animation: none; /* Pause animation on hover */
+            box-shadow: 0 16px 32px -4px rgba(79, 63, 240, 0.8), 0 0 0 2px rgba(255, 255, 255, 0.5);
+        }
+
+        .cta-button:active {
+            transform: translateY(1px);
+            box-shadow: 0 4px 12px -4px rgba(79, 63, 240, 0.8);
+        }
+
+        .testimonial-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--brand);
+            box-shadow: 0 4px 12px rgba(79, 63, 240, 0.3);
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .testimonial-avatar:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(79, 63, 240, 0.5);
+        }
+
+        .screenshot-container {
+            margin: 16px 0;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 2px solid var(--brand-border);
+            box-shadow: 0 8px 20px rgba(79, 63, 240, 0.15);
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .screenshot-container:hover {
+            border-color: var(--brand);
+            box-shadow: 0 12px 28px rgba(79, 63, 240, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .screenshot-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .screenshot-container:hover .screenshot-image {
+            transform: scale(1.01);
+        }
+
+        .pricing-badge {
+            background: linear-gradient(135deg, var(--success), #45a049);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="landing-card">
+        <div class="gradient-bar"></div>
+        
+        <div class="container">
+            <!-- Header -->
+            <div class="header">
+                <div class="logo-area">
+                    <div class="icon-wrapper">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1>ScholarFlux</h1>
+                        <p>for Sales Teams</p>
+                    </div>
+                </div>
+                <div class="badge">
+                    <i class="fa-regular fa-clock"></i> Close Deals Faster
+                </div>
+            </div>
+
+            <!-- Hero Section -->
+            <div class="hero">
+                <div class="hero-left">
+                    <h2>Mirror Your <span>Client's Language</span> and Close More Deals</h2>
+                    <p class="hero-description">ScholarFlux analyzes your prospect's communication style and rewrites your emails to match it perfectly — building instant rapport before your first meeting.</p>
+                    
+                    <div class="sales-quote" style="display: flex; align-items: center; gap: 20px;">
+                        <div class="testimonial-avatar">
+                            <img src="img.jpg" alt="Sarah K.">
+                        </div>
+                        <div style="flex: 1;">
+                            <div style="font-style: italic; color: var(--text-dark); font-size: 16px; line-height: 1.6; margin-bottom: 12px;">
+                                "I used to spend hours researching prospects' communication styles. Now ScholarFlux does it in seconds. My response rate doubled in the first week."
+                            </div>
+                            <div class="quote-author" style="color: var(--brand); font-weight: 500; display: flex; align-items: center; gap: 8px;">
+                                <span>— Sarah K., Enterprise Sales</span>
+                                <span style="font-size: 13px; color: var(--text-muted);">Verified User</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stats">
+                        <div class="stat-item">
+                            <span class="stat-number">2.4x</span>
+                            <span class="stat-label">Higher response rates</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">78%</span>
+                            <span class="stat-label">Faster email writing</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Client style matching</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Demo Section -->
+                <div class="hero-right">
+                    <span class="demo-label"><i class="fa-regular fa-eye"></i> REAL EXAMPLE</span>
+                    
+                    <div class="example-box">
+                        <!-- Prospect's Original Email -->
+                        <div class="example-header">
+                            <i class="fa-regular fa-file-lines"></i> Prospect's Email
+                            <span style="margin-left: auto; font-size: 12px; color: var(--text-muted);">From: Alan - Tech Startup Founder</span>
+                        </div>
+                        <div class="example-before" style="background: #f8f9fa; border-left-color: #9b94cc;">
+                            "Hey, we're currently evaluating a few tools but honestly not in a rush. Our team is pretty lean right now so any solution needs to be dead simple. What makes your thing different?"
+                        </div>
+                        
+                        <div class="arrow-down">
+                            <i class="fa-solid fa-arrow-down"></i>
+                        </div>
+                        
+                        <!-- Screenshot Display -->
+                        <div class="example-header">
+                            <i class="fa-solid fa-wand-magic-sparkles" style="color: var(--brand);"></i> ScholarFlux Transformation
+                            <span style="margin-left: auto; font-size: 12px; background: var(--brand-pale); padding: 4px 8px; border-radius: 20px; color: var(--brand); font-weight: 500;">
+                                "Alan - Tech Startup Founder" style applied
+                            </span>
+                        </div>
+
+                        <div class="screenshot-container">
+                            <img src="demo.png" alt="ScholarFlux transformation showing original vs styled text" class="screenshot-image">
+                        </div>
+
+                        <!-- Voice Matching Summary -->
+                        <div style="display: flex; align-items: center; gap: 12px; margin-top: 16px; padding: 12px; background: var(--bg-main); border-radius: var(--radius-sm);">
+                            <div style="display: flex; align-items: center; gap: 4px;">
+                                <span style="font-size: 12px; color: var(--text-mid);">Prospect's voice:</span>
+                                <span style="background: #9b94cc20; padding: 4px 8px; border-radius: 4px; font-size: 11px;">casual, "lean", "dead simple"</span>
+                            </div>
+                            <i class="fa-solid fa-arrow-right" style="color: var(--brand); font-size: 12px;"></i>
+                            <div style="display: flex; align-items: center; gap: 4px;">
+                                <span style="font-size: 12px; color: var(--text-mid);">Your reply:</span>
+                                <span style="background: var(--brand-pale); padding: 4px 8px; border-radius: 4px; font-size: 11px; color: var(--brand);">mirrored perfectly ✓</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="font-size: 13px; color: var(--text-muted); margin-top: 16px; text-align: center; padding: 8px; background: var(--bg-main); border-radius: var(--radius-sm);">
+                        <i class="fa-regular fa-circle-check" style="color: var(--success);"></i> 
+                        The transformed reply uses their casual tone, acknowledges their context, and matches their direct communication style
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features -->
+            <div class="features-section">
+                <div class="section-title">
+                    <h3>Built for Sales Professionals</h3>
+                    <p>Everything you need to build rapport and close more deals</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-microscope"></i>
+                        </div>
+                        <h4>Analyze Client Lingo</h4>
+                        <p>Paste their emails or LinkedIn messages. ScholarFlux instantly identifies their unique vocabulary, tone, and communication patterns.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-arrows-spin"></i>
+                        </div>
+                        <h4>Rewrite in Their Voice</h4>
+                        <p>Write your draft normally, and we'll transform it to match your prospect's exact communication style — formal, casual, technical, or anything in between.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <h4>Build Instant Rapport</h4>
+                        <p>When prospects feel like you speak their language, trust builds faster. More replies, more meetings, more closed deals.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fa-regular fa-clock"></i>
+                        </div>
+                        <h4>Save Hours Weekly</h4>
+                        <p>Stop manually researching and adapting your writing. ScholarFlux does it in seconds, giving you more time for actual selling.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+                        <h4>Learn Your Own Style</h4>
+                        <p>Save your own communication profiles for different types of clients — corporate, startups, executives, technical buyers.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fa-regular fa-floppy-disk"></i>
+                        </div>
+                        <h4>Style Library</h4>
+                        <p>Store client profiles for future use. Perfect for long sales cycles or repeat business with existing clients.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- How It Works -->
+            <div class="how-it-works">
+                <div class="section-title">
+                    <h3>How It Works</h3>
+                    <p>Three simple steps to start closing more deals</p>
+                </div>
+
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h5>Upload Client Samples</h5>
+                        <p>Paste 3-5 examples of your prospect's writing (emails, LinkedIn messages, or any text). ScholarFlux analyzes their unique style.</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h5>Create a Style Profile</h5>
+                        <p>Name and save the profile. Add notes about their industry, role, or any specific communication quirks you notice.</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h5>Write & Transform</h5>
+                        <p>Write your draft as you normally would. Select their profile and click "Transform" — your email instantly matches their voice.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pricing -->
+            <div class="pricing-section">
+                <div class="pricing-card">
+                    <div class="pricing-badge d-flex align-items-center"><img src="cone.png" class="me-2">LAUNCH SPECIAL</div>
+                    <h3 style="font-size: 24px; color: var(--text-dark);">Sales Professional License</h3>
+                    
+                    <!-- Discount Display -->
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 10px;">
+                        <span style="font-size: 24px; color: var(--text-muted); text-decoration: line-through; opacity: 0.6;">$97</span>
+                        <span style="background: var(--danger); color: white; padding: 4px 12px; border-radius: 100px; font-size: 14px; font-weight: 600;">
+                            31% OFF
+                        </span>
+                    </div>
+                    
+                    <div class="price">
+                        $67 <small>one-time</small>
+                    </div>
+                    
+                    <ul class="pricing-features">
+                        <li><i class="fa-regular fa-circle-check"></i> Unlimited style analyses</li>
+                        <li><i class="fa-regular fa-circle-check"></i> Unlimited text transformations</li>
+                        <li><i class="fa-regular fa-circle-check"></i> Save unlimited client profiles</li>
+                        <li><i class="fa-regular fa-circle-check"></i> Lifetime access (no subscriptions)</li>
+                        <li><i class="fa-regular fa-circle-check"></i> Free updates for life</li>
+                    </ul>
+
+                    <!-- Payment Instructions -->
+                    <div class="remitly-box">
+                        <div class="remitly-header">
+                            <i class="fa-solid fa-truck-fast"></i> Simple & Secure Payment
+                        </div>
+                        
+                        <p style="margin-bottom: 15px; color: var(--text-dark);">How it works:</p>
+                        
+                        <ol class="remitly-steps">
+                            <li><i class="fa-solid fa-1 mb-4"></i> Click the button below to email us</li>
+                            <li><i class="fa-solid fa-2 mb-4"></i> Receive your unique payment code and instructions</li>
+                            <li><i class="fa-solid fa-3 mb-4"></i> Send payment via Remitly (or your preferred method)</strong></li>
+                            <li><i class="fa-solid fa-4 mb-5"></i> <span style="font-weight: 600;">Include your unique code — we verify and send your app immediately</span></li>
+                        </ol>
+                        
+                        <div class="ref-code">
+                            Your Unique Code: <strong style="color: var(--brand);">SCH-XXXX</strong>
+                        </div>
+                        
+                        <p style="font-size: 13px; margin-top: 10px;">
+                            <i class="fa-regular fa-envelope"></i> After sending, email your confirmation to <strong>sales@scholarflux.com</strong> with your reference code — we'll send your download link within minutes!
+                        </p>
+                    </div>
+
+                    <div class="payment-note">
+                        <i class="fa-regular fa-circle-question"></i> 
+                        <strong>Prefer another payment method?</strong> Contact us and we'll accommodate you.
+                    </div>
+
+                    <div style="font-size: 13px; color: var(--text-muted); margin-top: 10px; margin-bottom: 15px;">
+                        <i class="fa-regular fa-clock"></i> Launch pricing — price increases to $97 soon
+                    </div>
+
+                    <button class="cta-button" onclick="window.location.href='mailto:sales@scholarflux.com?subject=I%20want%20to%20buy%20ScholarFlux%20(Sales%20Edition)&body=Hi%20ScholarFlux%20Team,%0A%0AI'm%20ready%20to%20buy%20ScholarFlux%20for%20Sales.%20Please%20send%20me%20payment%20instructions.%0A%0AReference%20code%20I'll%20use%3A%20SCH-SALES-%5BYour%20Name%5D%0A%0AThanks!'">
+                        <i class="fa-regular fa-envelope"></i> Email to Purchase
+                    </button>
+                </div>
+            </div>
+
+            <!-- FAQ -->
+            <div class="faq-section">
+                <div class="section-title">
+                    <h3>Questions from Sales Pros</h3>
+                    <p>Everything you need to know</p>
+                </div>
+
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <i class="fa-regular fa-circle-question"></i> How is this different from generic AI writing tools?
+                        </div>
+                        <div class="faq-answer">
+                            Generic tools write in their own voice. ScholarFlux learns and mirrors YOUR CLIENT'S voice — their vocabulary, sentence patterns, formality level, and unique phrases.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <i class="fa-regular fa-circle-question"></i> Will it work with technical/industry jargon?
+                        </div>
+                        <div class="faq-answer">
+                            Absolutely. The more technical your client's writing, the better ScholarFlux captures their specific terminology and adapts your writing to match it perfectly.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <i class="fa-regular fa-circle-question"></i> Can I save multiple client profiles?
+                        </div>
+                        <div class="faq-answer">
+                            Yes! Build a library of client communication styles — great for long sales cycles and repeat business with existing clients.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <i class="fa-regular fa-circle-question"></i> What platforms does it work on?
+                        </div>
+                        <div class="faq-answer">
+                            Windows, macOS, and Linux. Download the version for your operating system and it works offline — your data stays private.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <p>© 2026 ScholarFlux — Built for sales professionals who want to close more deals</p>
+                <p style="margin-top: 10px; font-size: 12px;">
+                    <i class="fa-regular fa-envelope"></i> sales@scholarflux.com
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="bootstrap.bundle.min.js"></script>
+</body>
+</html>
